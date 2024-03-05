@@ -1,0 +1,71 @@
+<head th:fragment="common-head">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+    rel="stylesheet">
+  <title>Selfstyle</title>
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="/assets/css/templatemo-sixteen.css">
+  <link rel="stylesheet" href="/assets/css/owl.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+</head>
+
+<header th:fragment="common-header">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <h2>Self<em>style</em></h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li th:if="${user.merchant}" class="nav-item">
+            <a class="nav-link" href="/merchant-products">My Products</a>
+          </li>
+          <li th:unless="${user.merchant}" class="nav-item">
+            <a class="nav-link" href="/products">Our Products</a>
+          </li>
+          <li th:if="${user.merchant}" class="nav-item">
+            <a class="nav-link" href="/product-inventory">My Inventory</a>
+          </li>
+          <li th:unless="${user.merchant}" class="nav-item">
+            <a class="nav-link" href="/about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact Us</a>
+          </li>
+          <li th:if="${user.customer}" class="nav-item">
+            <a th:text="${user.customer.customerName}" class="nav-link" href="/profile">CustomerName</a>
+          </li>
+          <li th:if="${cart!=null && cart.cartItemCount > 0}" class="nav-item">
+            <a class="nav-link" href="/cart">
+              Cart
+              <span th:if="${cart!=null && cart.cartItemCount > 0}" th:text="${{cart.cartItemCount}}" class="badge badge-light"></span>
+            </a>
+          </li>
+          <li th:if="${user.merchant}" class="nav-item">
+            <a th:text="${user.merchant.name}" class="nav-link" href="/profile">login</a>
+          </li>
+          <li th:if="${user.merchant != null OR user.customer != null}" class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+          <li th:if="${user.customer==null AND user.merchant == null}" class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

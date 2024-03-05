@@ -1,0 +1,30 @@
+Spring - Java Framework for enterprices application.
+
+Java objects = beans
+Beans types
+
+Controller -> Rest controller - data in and out from backend
+Service -> Business logic - 
+Repository -> database connection, data select, update, insert , delete - Spring managed.
+
+
+backend start command
+
+command prompt 
+D:
+cd D:\Project\farmflakes
+mvn clean install spring-boot:run
+to terminal/shutdown enter ctrl C
+
+
+Controller HTTP Methods
+
+GET -> retrive data
+POST -> Create data
+PUT -> existing data update
+DELETE -> data delete
+
+
+Shortcuts
+
+for import -> ctrl <space bar>
